@@ -38,7 +38,7 @@ export default function ThemeToggler() {
 		return (
 			<Button variant="ghost" onClick={() => setTheme("dark")}>
 				{/* <Image src="/night.svg" width={20} height={20} alt="dashboard" /> */}
-				<Icon name="star" />
+				<Icon name="moon" />
 			</Button>
 		);
 	}

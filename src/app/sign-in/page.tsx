@@ -101,7 +101,7 @@ export default function SignIn() {
 								/>
 								<div
 									onClick={() => setShowPassword(!showPassword)}
-									className="absolute right-2 top-[1.72rem] p-1 hover:bg-gray-100 cursor-pointer rounded-md transition-all"
+									className="absolute right-2 top-[1.72rem] p-1 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer rounded-md transition-all"
 								>
 									{showPassword ? <TbEyeClosed size={17} /> : <TbEye size={17} />}
 								</div>

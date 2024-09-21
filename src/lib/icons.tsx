@@ -41,78 +41,185 @@ const Icon = ({ name, selected }: { name: string; selected?: boolean }) => {
 
 	if (name === "user") {
 		return (
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="66"
+				height="66"
+				viewBox="0 0 24 24"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
+			>
 				<path
-					d="M17.83 10.4a.86.86 0 0 0-.57.16V6.89H6.69v3.67a.86.86 0 0 0-.57-.16c-.63.06-1.07.87-1 1.8s.69 1.65 1.32 1.58a.86.86 0 0 0 .23-.06v.59A3.46 3.46 0 0 0 7.91 17l2.46 2a2.62 2.62 0 0 0 3.27.08l2.29-1.69a3.45 3.45 0 0 0 1.33-2.79v-.89a.86.86 0 0 0 .23.06c.63.07 1.22-.64 1.32-1.58s-.35-1.73-.98-1.79Z"
-					style={{
-						fill: baseColor,
-					}}
-				/>
+					fill="currentColor"
+					fillRule="evenodd"
+					d="M14.447 1.106a1 1 0 0 1 .447 1.341L14.118 4H18a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h3.882l-.776-1.553a1 1 0 0 1 1.788-.894L12 3.763l1.106-2.21a1 1 0 0 1 1.341-.447Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
 				<path
-					style={{
-						fill: selected ? indigo : secondaryColor,
-					}}
-					d="M9 7.17a5 5 0 0 0-2.21 5s-3.37-7 2.7-7.49a6.16 6.16 0 0 1 5.2-.87 5.43 5.43 0 0 1 2.56 8.37s0-3.05-3.63-2.79A5.44 5.44 0 0 1 9 7.17ZM20.9 22.64h-3a.75.75 0 1 1 0-1.5h3a.46.46 0 0 0 .46-.45v-3.34a.75.75 0 0 1 1.5 0v3.34a2 2 0 0 1-1.96 1.95ZM6.2 22.64h-3a2 2 0 0 1-2-1.95v-3.34a.75.75 0 0 1 1.5 0v3.34a.46.46 0 0 0 .46.45h3a.75.75 0 0 1 0 1.5ZM22.11 7.29a.75.75 0 0 1-.75-.75V3.2a.46.46 0 0 0-.46-.45h-3a.75.75 0 0 1 0-1.5h3a2 2 0 0 1 2 2v3.29a.76.76 0 0 1-.79.75ZM2 7.29a.76.76 0 0 1-.75-.75V3.2a2 2 0 0 1 2-1.95h3a.75.75 0 0 1 0 1.5h-3a.46.46 0 0 0-.46.45v3.34a.76.76 0 0 1-.79.75Z"
-				/>
+					fill="currentColor"
+					fillRule="evenodd"
+					d="M12 9c-1.54 0-2.502 1.667-1.732 3 .357.619 1.017 1 1.732 1 1.54 0 2.502-1.667 1.732-3A1.999 1.999 0 0 0 12 9Zm1.5 5h-3a2.5 2.5 0 0 0-2.495 2.336L8 16.5v.5a1 1 0 0 0 1.993.117L10 17v-.5a.5.5 0 0 1 .41-.492L10.5 16h3a.5.5 0 0 1 .492.41l.008.09v.5a1 1 0 0 0 1.993.117L16 17v-.5a2.5 2.5 0 0 0-2.336-2.495L13.5 14Z"
+					className="duoicon-primary-layer"
+				></path>
+			</svg>
+		);
+	}
+
+	if (name === "tasks") {
+		return (
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="66"
+				height="66"
+				viewBox="0 0 24 24"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
+			>
+				<path
+					fill="currentColor"
+					d="M8.75 13A2.25 2.25 0 0 1 11 15.25v3.5A2.25 2.25 0 0 1 8.75 21h-3.5A2.25 2.25 0 0 1 3 18.75v-3.5A2.25 2.25 0 0 1 5.25 13h3.5Zm10-10A2.25 2.25 0 0 1 21 5.25v3.5A2.25 2.25 0 0 1 18.75 11h-3.5A2.25 2.25 0 0 1 13 8.75v-3.5A2.25 2.25 0 0 1 15.25 3h3.5Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
+				<path
+					fill="currentColor"
+					d="M8.75 3A2.25 2.25 0 0 1 11 5.25v3.5A2.25 2.25 0 0 1 8.75 11h-3.5A2.25 2.25 0 0 1 3 8.75v-3.5A2.25 2.25 0 0 1 5.25 3h3.5Z"
+					className="duoicon-primary-layer"
+				></path>
+				<path
+					fill="currentColor"
+					d="M18.75 13A2.25 2.25 0 0 1 21 15.25v3.5A2.25 2.25 0 0 1 18.75 21h-3.5A2.25 2.25 0 0 1 13 18.75v-3.5A2.25 2.25 0 0 1 15.25 13h3.5Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
+			</svg>
+		);
+	}
+
+	if (name === "add") {
+		return (
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="66"
+				height="66"
+				viewBox="0 0 24 24"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
+			>
+				<path
+					fill="currentColor"
+					d="M12 2c5.523 0 10 4.477 10 10s-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
+				<path
+					fill="currentColor"
+					d="M12 7a1 1 0 0 0-.993.883L11 8v3H8a1 1 0 0 0-.117 1.993L8 13h3v3a1 1 0 0 0 1.993.117L13 16v-3h3a1 1 0 0 0 .117-1.993L16 11h-3V8a1 1 0 0 0-1-1Z"
+					className="duoicon-primary-layer"
+				></path>
+			</svg>
+		);
+	}
+
+	if (name === "export") {
+		return (
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="66"
+				height="66"
+				viewBox="0 0 24 24"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
+			>
+				<path
+					fill="currentColor"
+					fill-rule="evenodd"
+					d="M12 2v6.5a1.5 1.5 0 0 0 1.356 1.493L13.5 10H20v10a2 2 0 0 1-1.85 1.995L18 22H6a2 2 0 0 1-1.995-1.85L4 20V4a2 2 0 0 1 1.85-1.995L6 2h6Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
+				<path
+					fill="currentColor"
+					fill-rule="evenodd"
+					d="M14 2.043a2 2 0 0 1 .877.43l.123.113L19.414 7c.234.234.407.523.502.84l.04.16H14V2.043Zm-2.707 9.13-2.121 2.121a1 1 0 1 0 1.414 1.414l.414-.414V17a1 1 0 1 0 2 0v-2.706l.414.414a1 1 0 1 0 1.414-1.414l-2.12-2.121a1 1 0 0 0-1.415 0Z"
+					className="duoicon-primary-layer"
+				></path>
 			</svg>
 		);
 	}
 
 	if (name === "sun") {
 		return (
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="66"
+				height="66"
+				viewBox="0 0 24 24"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
+			>
 				<path
-					d="M13 22h-2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1Zm5.2-11.27 2.59-1.5a1 1 0 0 0 .37-1.36l-1-1.74a1 1 0 0 0-1.37-.36l-2.59 1.5a1 1 0 0 0-.37 1.36l1 1.74a1 1 0 0 0 1.37.36ZM7.8 7.27l-2.59-1.5a1 1 0 0 0-1.37.36l-1 1.74a1 1 0 0 0 .37 1.36l2.59 1.5a1 1 0 0 0 1.37-.36l1-1.74a1 1 0 0 0-.37-1.36Z"
-					style={{
-						fill: baseColor,
-					}}
-				/>
+					fill="currentColor"
+					d="M12 18.5a1.5 1.5 0 0 1 1.493 1.356L13.5 20v1a1.5 1.5 0 0 1-2.993.144L10.5 21v-1a1.5 1.5 0 0 1 1.5-1.5Zm0-17a1.5 1.5 0 0 1 1.493 1.356L13.5 3v1a1.5 1.5 0 0 1-2.993.144L10.5 4V3A1.5 1.5 0 0 1 12 1.5Zm5.303 3.075a1.5 1.5 0 0 1 2.225 2.008l-.103.114-.707.707a1.5 1.5 0 0 1-2.225-2.008l.103-.114.707-.707Zm-12.728 0a1.5 1.5 0 0 1 2.008-.103l.114.103.707.707a1.5 1.5 0 0 1-2.008 2.225l-.114-.103-.707-.707a1.5 1.5 0 0 1 0-2.122ZM21 10.5a1.5 1.5 0 0 1 .144 2.993L21 13.5h-1a1.5 1.5 0 0 1-.144-2.993L20 10.5h1Zm-17 0a1.5 1.5 0 0 1 .144 2.993L4 13.5H3a1.5 1.5 0 0 1-.144-2.993L3 10.5h1Z"
+					className="duoicon-primary-layer"
+				></path>
 				<path
-					style={{
-						fill: selected ? indigo : secondaryColor,
-					}}
-					d="M13 7h-2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1ZM5.21 18.23l2.59-1.5a1 1 0 0 0 .37-1.36l-1-1.74a1 1 0 0 0-1.37-.36l-2.59 1.5a1 1 0 0 0-.37 1.36l1 1.74a1 1 0 0 0 1.37.36Zm15.58-3.46-2.59-1.5a1 1 0 0 0-1.37.36l-1 1.74a1 1 0 0 0 .37 1.36l2.59 1.5a1 1 0 0 0 1.37-.36l1-1.74a1 1 0 0 0-.37-1.36Z"
-				/>
+					fill="currentColor"
+					d="M12 6c4.619 0 7.506 5 5.196 9A6 6 0 0 1 12 18c-4.619 0-7.506-5-5.196-9A6 6 0 0 1 12 6Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
+				<path
+					fill="currentColor"
+					d="M5.282 16.596a1.5 1.5 0 0 1 2.225 2.008l-.103.114-.707.707a1.5 1.5 0 0 1-2.225-2.008l.103-.114.707-.707Zm11.314 0a1.5 1.5 0 0 1 2.008-.103l.114.103.707.707a1.5 1.5 0 0 1-2.008 2.225l-.114-.103-.707-.707a1.5 1.5 0 0 1 0-2.122Z"
+					className="duoicon-primary-layer"
+				></path>
 			</svg>
 		);
 	}
 
 	if (name === "bell") {
 		return (
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5">
-				<circle
-					cx={12}
-					cy={19}
-					r={3}
-					style={{
-						fill: baseColor,
-					}}
-				/>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="66"
+				height="66"
+				viewBox="0 0 24 24"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
+			>
 				<path
-					style={{
-						fill: selected ? indigo : secondaryColor,
-					}}
-					d="M19 15v3a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-3a2 2 0 0 0 2-2v-3a5 5 0 0 1 4-4.9V3a1 1 0 0 1 2 0v2.1a5 5 0 0 1 4 4.9v3a2 2 0 0 0 2 2Zm-8-5a1 1 0 0 1 1-1 1 1 0 0 0 0-2 3 3 0 0 0-3 3 1 1 0 0 0 2 0Z"
-				/>
+					fill="currentColor"
+					d="M9.042 19.003h5.916c-.385 2.277-3.09 3.283-4.87 1.811a3 3 0 0 1-1.046-1.811Z"
+					className="duoicon-primary-layer"
+				></path>
+				<path
+					fill="currentColor"
+					d="M12 2.003a7.5 7.5 0 0 1 7.5 7.5v4l1.418 3.16A.95.95 0 0 1 20.052 18h-16.1a.95.95 0 0 1-.867-1.338l1.415-3.16V9.49l.005-.25A7.5 7.5 0 0 1 12 2.004v-.001Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
 			</svg>
 		);
 	}
 
 	if (name === "settings") {
 		return (
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="66"
+				height="66"
+				viewBox="0 0 24 24"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
+			>
 				<path
-					d="M22 8.66a6.79 6.79 0 0 1-7.76 6.86 3 3 0 0 0-2.54.89l-4.76 4.75a2.91 2.91 0 0 1-4.23-.11 3 3 0 0 1 .22-4.13l4.65-4.64a3 3 0 0 0 .88-2.54A6.79 6.79 0 0 1 15.32 2a1.07 1.07 0 0 1 .73 1.82l-2.87 2.86a1.54 1.54 0 0 0-.32 1.77 5.56 5.56 0 0 0 2.67 2.68 1.56 1.56 0 0 0 1.77-.32l2.88-2.88a1.07 1.07 0 0 1 1.82.73Z"
-					style={{
-						fill: baseColor,
-					}}
-				/>
+					fill="currentColor"
+					fillRule="evenodd"
+					d="M9.965 2.809a1.51 1.51 0 0 0-1.401-.203 10.007 10.007 0 0 0-2.982 1.725 1.51 1.51 0 0 0-.524 1.313c.075.753-.058 1.48-.42 2.106-.361.627-.925 1.106-1.615 1.417-.458.203-.786.62-.875 1.113a10.035 10.035 0 0 0 0 3.44c.093.537.46.926.875 1.114.69.31 1.254.79 1.616 1.416.361.627.494 1.353.419 2.106-.045.452.107.964.524 1.313a10.007 10.007 0 0 0 2.982 1.725c.471.169.996.093 1.4-.203.615-.442 1.312-.691 2.036-.691s1.42.249 2.035.691c.37.266.89.39 1.401.203a10.007 10.007 0 0 0 2.982-1.725c.417-.349.57-.86.524-1.313-.075-.753.057-1.48.42-2.106.361-.627.925-1.105 1.615-1.416.414-.188.782-.577.875-1.114a10.085 10.085 0 0 0 0-3.44 1.512 1.512 0 0 0-.875-1.113c-.69-.311-1.254-.79-1.616-1.417-.362-.626-.494-1.353-.419-2.106a1.513 1.513 0 0 0-.524-1.313 10.007 10.007 0 0 0-2.982-1.725 1.514 1.514 0 0 0-1.4.203C13.42 3.25 12.723 3.5 12 3.5c-.723 0-1.42-.249-2.035-.691Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
 				<path
-					style={{
-						fill: selected ? indigo : secondaryColor,
-					}}
-					d="M4.17 19.81a1 1 0 0 1 0-1.37l5.53-5.53a1 1 0 0 1 1.37 0 1 1 0 0 1 0 1.38l-5.52 5.52a1 1 0 0 1-1.38 0Z"
-				/>
+					fill="currentColor"
+					fillRule="evenodd"
+					d="M9 12c0-2.309 2.5-3.753 4.5-2.598A3 3 0 0 1 15 12c0 2.309-2.5 3.753-4.5 2.598A3 3 0 0 1 9 12Z"
+					className="duoicon-primary-layer"
+				></path>
 			</svg>
 		);
 	}
@@ -201,23 +308,24 @@ const Icon = ({ name, selected }: { name: string; selected?: boolean }) => {
 
 	if (name === "calendar") {
 		return (
-			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5">
-				<rect
-					width={20}
-					height={18}
-					x={2}
-					y={4}
-					rx={1}
-					style={{
-						fill: baseColor,
-					}}
-				/>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="66"
+				height="66"
+				viewBox="0 0 24 24"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
+			>
 				<path
-					style={{
-						fill: selected ? indigo : secondaryColor,
-					}}
-					d="M6 6a1 1 0 0 1-1-1V3a1 1 0 0 1 2 0v2a1 1 0 0 1-1 1Zm5-1V3a1 1 0 0 0-2 0v2a1 1 0 0 0 2 0Zm4 0V3a1 1 0 0 0-2 0v2a1 1 0 0 0 2 0Zm4 0V3a1 1 0 0 0-2 0v2a1 1 0 0 0 2 0ZM8.84 13.09a1.43 1.43 0 0 0 .93-.31 1.13 1.13 0 0 0 .38-.91 1.09 1.09 0 0 0-.31-.78 1.1 1.1 0 0 0-.84-.32 1.42 1.42 0 0 0-.59.1.85.85 0 0 0-.37.26 2 2 0 0 0-.25.42c-.08.18-.16.34-.22.49a.39.39 0 0 1-.21.19.83.83 0 0 1-.36.07.6.6 0 0 1-.43-.19.65.65 0 0 1-.19-.5 1.39 1.39 0 0 1 .19-.61 2.39 2.39 0 0 1 .54-.64A3 3 0 0 1 8 9.83a3.65 3.65 0 0 1 1.18-.18 3.39 3.39 0 0 1 1 .15 2.65 2.65 0 0 1 .81.45 1.88 1.88 0 0 1 .52.68 2 2 0 0 1 .18.83 1.9 1.9 0 0 1-.26 1 3.39 3.39 0 0 1-.73.82 3.12 3.12 0 0 1 .78.56 2.33 2.33 0 0 1 .47.7 2.27 2.27 0 0 1 .16.83 2.65 2.65 0 0 1-.22 1 2.59 2.59 0 0 1-.63.89 3 3 0 0 1-1 .61 3.62 3.62 0 0 1-1.26.26 3 3 0 0 1-1.26-.26 2.68 2.68 0 0 1-.92-.63 2.74 2.74 0 0 1-.54-.78 1.72 1.72 0 0 1-.18-.67.73.73 0 0 1 .21-.54.77.77 0 0 1 .55-.21.55.55 0 0 1 .32.1.44.44 0 0 1 .2.23 4 4 0 0 0 .65 1.21 1.24 1.24 0 0 0 1 .39 1.49 1.49 0 0 0 1.26-.71 1.45 1.45 0 0 0 .22-.81 1.5 1.5 0 0 0-.38-1.08 1.36 1.36 0 0 0-1-.39H8.45a.72.72 0 0 1-.5-.16.61.61 0 0 1-.17-.45.54.54 0 0 1 .22-.4 1 1 0 0 1 .63-.18Zm6.51 4.39v-5.33a4.82 4.82 0 0 1-2 1.14.58.58 0 0 1-.43-.2.61.61 0 0 1-.19-.45.52.52 0 0 1 .18-.44 3.93 3.93 0 0 1 .67-.37 4.68 4.68 0 0 0 1.13-.7 4.87 4.87 0 0 0 .75-.82 6.26 6.26 0 0 1 .43-.57.51.51 0 0 1 .37-.1.59.59 0 0 1 .5.24 1 1 0 0 1 .19.66v6.71c0 .78-.27 1.18-.8 1.18a.75.75 0 0 1-.58-.24 1.06 1.06 0 0 1-.22-.71Z"
-				/>
+					fill="currentColor"
+					d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7h18Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
+				<path
+					fill="currentColor"
+					d="M16 3a1 1 0 0 1 1 1v1h2a2 2 0 0 1 2 2v3H3V7a2 2 0 0 1 2-2h2V4a1 1 0 1 1 2 0v1h6V4a1 1 0 0 1 1-1Z"
+					className="duoicon-primary-layer"
+				></path>
 			</svg>
 		);
 	}
@@ -226,88 +334,79 @@ const Icon = ({ name, selected }: { name: string; selected?: boolean }) => {
 		return (
 			<svg
 				xmlns="http://www.w3.org/2000/svg"
-				id="General"
+				width="66"
+				height="66"
 				viewBox="0 0 24 24"
-				className="w-5 h-5"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
 			>
-				<defs>
-					<style>{".cls-1{opacity:.3}"}</style>
-				</defs>
-				<g id="gen001-010">
-					<g id="gen008">
-						<rect
-							width={9}
-							height={9}
-							x={2}
-							y={2}
-							rx={1}
-							style={{
-								fill: selected ? indigo : secondaryColor,
-							}}
-						/>
-						<rect
-							width={9}
-							height={9}
-							x={13}
-							y={2}
-							style={{
-								fill: baseColor,
-							}}
-							rx={1}
-						/>
-						<rect
-							width={9}
-							height={9}
-							x={2}
-							y={13}
-							style={{
-								fill: baseColor,
-							}}
-							rx={1}
-						/>
-						<rect
-							width={9}
-							height={9}
-							x={13}
-							y={13}
-							style={{
-								fill: baseColor,
-							}}
-							rx={1}
-						/>
-					</g>
-				</g>
+				<path
+					fill="currentColor"
+					fillRule="evenodd"
+					d="M19 11a2 2 0 0 1 1.995 1.85L21 13v6a2 2 0 0 1-1.85 1.995L19 21h-4a2 2 0 0 1-1.995-1.85L13 19v-6a2 2 0 0 1 1.85-1.995L15 11h4Zm0-8a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
+				<path
+					fill="currentColor"
+					fillRule="evenodd"
+					d="M9 3a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4Z"
+					className="duoicon-primary-layer"
+				></path>
+				<path
+					fill="currentColor"
+					fillRule="evenodd"
+					d="M9 15a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 1 2-2h4Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
 			</svg>
 		);
 	}
 
-	if (name === "sun") {
+	if (name === "projects") {
 		return (
-			<svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-				<g id="abstract">
-					<g id="abstract-12">
-						<path d="M13 22h-2a1 1 0 0 1-1-1v-3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1Zm5.2-11.27 2.59-1.5a1 1 0 0 0 .37-1.36l-1-1.74a1 1 0 0 0-1.37-.36l-2.59 1.5a1 1 0 0 0-.37 1.36l1 1.74a1 1 0 0 0 1.37.36ZM7.8 7.27l-2.59-1.5a1 1 0 0 0-1.37.36l-1 1.74a1 1 0 0 0 .37 1.36l2.59 1.5a1 1 0 0 0 1.37-.36l1-1.74a1 1 0 0 0-.37-1.36ZM13 7h-2a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1ZM5.21 18.23l2.59-1.5a1 1 0 0 0 .37-1.36l-1-1.74a1 1 0 0 0-1.37-.36l-2.59 1.5a1 1 0 0 0-.37 1.36l1 1.74a1 1 0 0 0 1.37.36Zm15.58-3.46-2.59-1.5a1 1 0 0 0-1.37.36l-1 1.74a1 1 0 0 0 .37 1.36l2.59 1.5a1 1 0 0 0 1.37-.36l1-1.74a1 1 0 0 0-.37-1.36Z" />
-					</g>
-				</g>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="66"
+				height="66"
+				viewBox="0 0 24 24"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
+			>
+				<path
+					fill="currentColor"
+					d="M19.82 6a2 2 0 0 1 1.972 2.329l-1.666 10A2 2 0 0 1 18.153 20H5.847a2 2 0 0 1-1.973-1.671l-1.666-10A2 2 0 0 1 4.18 6h15.64Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
+				<path
+					fill="currentColor"
+					d="M18 3a1 1 0 1 1 0 2H6a1 1 0 1 1 0-2h12Z"
+					className="duoicon-primary-layer"
+				></path>
 			</svg>
 		);
 	}
 
-	if (name === "star") {
+	if (name === "moon") {
 		return (
-			<svg className="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width="66"
+				height="66"
+				viewBox="0 0 24 24"
+				className="w-5 h-5 duoicon duoicon-dashboard text-[rgb(75, 85, 99)]"
+			>
 				<path
-					d="M7.14 21.35a1.09 1.09 0 0 1-1.68-1.22l1.86-5.72-4.87-3.53a1.09 1.09 0 0 1 .64-2h17.82a1.09 1.09 0 0 1 .64 2Z"
-					style={{
-						fill: baseColor,
-					}}
-				/>
+					fill="currentColor"
+					d="M12.477 4.546A1.01 1.01 0 0 1 13.5 3.127c.025.002.049.006.074.01 6.821 1.213 9.771 9.356 5.31 14.656-4.462 5.301-12.988 3.784-15.348-2.73a9.012 9.012 0 0 1-.399-1.489 1.01 1.01 0 0 1 1.339-1.125c.024.008.047.018.07.028 4.214 1.892 8.895-1.488 8.426-6.083a5.998 5.998 0 0 0-.495-1.848Z"
+					className="duoicon-secondary-layer"
+					opacity=".3"
+				></path>
 				<path
-					d="M11 3.19 7.32 14.41l9.54 6.94a1.09 1.09 0 0 0 1.68-1.22L13 3.19a1.09 1.09 0 0 0-2 0Z"
-					style={{
-						fill: selected ? indigo : secondaryColor,
-					}}
-				/>
+					fill="currentColor"
+					d="M8.397 2.857c.04-.09.166-.09.206 0l.102.222a5.191 5.191 0 0 0 1.97 2.172l.157.092c.073.04.075.144.003.187l-.003.002-.158.092a5.193 5.193 0 0 0-2.07 2.394.113.113 0 0 1-.195.022c-.004-.007-.009-.014-.012-.022l-.102-.222a5.191 5.191 0 0 0-1.97-2.172l-.158-.092a.108.108 0 0 1-.003-.187l.003-.002.158-.092a5.191 5.191 0 0 0 1.97-2.172l.102-.222ZM5.565 7.716l.064.14a3.257 3.257 0 0 0 1.237 1.363l.1.059a.068.068 0 0 1 0 .118l-.1.058a3.26 3.26 0 0 0-1.237 1.364l-.064.14a.07.07 0 0 1-.122.013.057.057 0 0 1-.008-.013l-.064-.14a3.26 3.26 0 0 0-1.237-1.364l-.1-.058a.068.068 0 0 1 0-.118l.1-.059c.534-.326.964-.8 1.236-1.364l.064-.14a.07.07 0 0 1 .122-.013.057.057 0 0 1 .008.013l.001.001Z"
+					className="duoicon-primary-layer"
+				></path>
 			</svg>
 		);
 	}

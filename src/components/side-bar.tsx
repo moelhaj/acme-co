@@ -1,6 +1,5 @@
 "use client";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
-import { Home, LineChart, Package, Package2, Settings, ShoppingCart, Users2 } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Icon, { Logo } from "@/lib/icons";
@@ -39,6 +38,23 @@ export default function SideBar() {
 				<Tooltip>
 					<TooltipTrigger asChild>
 						<Link
+							href="/projects"
+							className={cn(
+								pathname.startsWith("/projects")
+									? "bg-accent text-accent-foreground"
+									: "text-muted-foreground",
+								"flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground  transition-colors md:h-8 md:w-8 hover:bg-accent hover:text-accent-foreground"
+							)}
+						>
+							<Icon name="projects" selected={pathname.startsWith("/projects")} />
+							<span className="sr-only">Projects</span>
+						</Link>
+					</TooltipTrigger>
+					<TooltipContent side="right">Projects</TooltipContent>
+				</Tooltip>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<Link
 							href="/calendar"
 							className={cn(
 								pathname.startsWith("/calendar")
@@ -59,11 +75,11 @@ export default function SideBar() {
 							href="#"
 							className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors md:h-8 md:w-8"
 						>
-							<Icon name="chart" />
-							<span className="sr-only">Products</span>
+							<Icon name="tasks" />
+							<span className="sr-only">Tasks</span>
 						</Link>
 					</TooltipTrigger>
-					<TooltipContent side="right">Products</TooltipContent>
+					<TooltipContent side="right">Tasks</TooltipContent>
 				</Tooltip>
 				<Tooltip>
 					<TooltipTrigger asChild>

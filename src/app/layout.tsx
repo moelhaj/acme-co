@@ -57,7 +57,7 @@ export default function RootLayout({
 					<TooltipProvider delayDuration={0}>
 						<div className="flex min-h-screen w-full flex-col">
 							<SideBar />
-							<div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
+							<div className="flex flex-col sm:gap-4 sm:pl-14">
 								<Header />
 								<main className="overflow-hidden h-[89vh]">
 									<div className="h-full overflow-x-scroll overflow-y-scroll pb-10">
