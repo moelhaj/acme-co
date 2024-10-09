@@ -18,12 +18,10 @@ export async function getProjects({ page = 1, limit = 10, query = "" }) {
 
 export async function createProject(data: Omit<Project, "id">) {
 	try {
-		const { title, details, startDate, dueDate, status, members } = data;
+		const { title, details, status, members } = data;
 		await sql`
-            INSERT INTO projects (title, details, startDate, dueDate, status, members)
-			VALUES (${title}, ${details}, ${startDate.toISOString()}, ${dueDate.toISOString()}, ${status}, ${JSON.stringify(
-			members
-		)})
+            INSERT INTO projects (title, details, status, members)
+			VALUES (${title}, ${details}, ${status}, ${JSON.stringify(members)})
         `;
 		revalidatePath("/projects");
 	} catch (error) {

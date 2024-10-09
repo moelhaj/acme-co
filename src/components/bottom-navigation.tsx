@@ -1,18 +1,8 @@
 "use client";
+import { cn } from "@/lib/utils";
+import { CalendarDays, FileCog, SlidersHorizontal, SquareKanban, Table2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { motion } from "framer-motion";
-import {
-	CalendarDays,
-	FileCog,
-	Layers,
-	LayoutGrid,
-	SlidersHorizontal,
-	SquareChartGantt,
-	SquareKanban,
-	Table2,
-} from "lucide-react";
 
 export default function BottomNavigation() {
 	const pathname = usePathname();
