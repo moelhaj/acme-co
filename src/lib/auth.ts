@@ -37,11 +37,9 @@ export async function updateSession(request: NextRequest) {
 	const parsed = await decrypt(session);
 	parsed.expires = new Date(Date.now() + 12 * 60 * 60 * 1000);
 	const res = NextResponse.next();
-	res.cookies.set({
-		name: "session",
-		value: await encrypt(parsed),
+	res.cookies.set("session", await encrypt(parsed), {
 		httpOnly: true,
-		expires: parsed.expires,
+		expires: parsed.expires as Date,
 	});
 	return res;
 }

@@ -6,7 +6,7 @@ import { getSession } from "@/lib/auth";
 import Logo from "./logo";
 
 export default async function Header() {
-	const session = await getSession();
+	const session = (await getSession()) as { user: User } | null;
 	return (
 		<header className="flex items-center gap-4 px-4 sm:bg-transparent sm:px-6 py-2">
 			<Link
@@ -19,7 +19,7 @@ export default async function Header() {
 			<div className="flex-1" />
 			<Notifications />
 			<ThemeToggler />
-			<UserMenu user={session?.user} />
+			{session && <UserMenu user={session.user} />}
 		</header>
 	);
 }
