@@ -1,12 +1,12 @@
+import { TooltipProvider } from "@/components/ui/tooltip";
+import { Providers } from "@/lib/theme";
+import { cn } from "@/lib/utils";
+import { GeistSans } from "geist/font/sans";
+import { Metadata, Viewport } from "next";
+import "./globals.css";
 import BottomNavigation from "@/components/bottom-navigation";
 import Header from "@/components/header";
 import SideBar from "@/components/side-bar";
-import { Providers } from "@/lib/theme";
-import { cn } from "@/lib/utils";
-import { Metadata, Viewport } from "next";
-import "./globals.css";
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { GeistSans } from "geist/font/sans";
 
 export const metadata: Metadata = {
 	title: {
@@ -47,20 +47,16 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={cn("antialiased text-sm line-clamp-3 leading-6", GeistSans.className)}
+				className={cn("antialiased text-sm leading-6", GeistSans.className)}
 				suppressHydrationWarning
 			>
 				<Providers>
 					<TooltipProvider delayDuration={0}>
 						<div className="flex min-h-screen w-full flex-col">
 							<SideBar />
-							<div className="flex flex-col sm:gap-4 sm:pl-14">
+							<div className="flex flex-col sm:pl-14 h-full mb-20">
 								<Header />
-								<main className="overflow-hidden h-[89vh]">
-									<div className="h-full overflow-x-scroll overflow-y-scroll pb-10">
-										{children}
-									</div>
-								</main>
+								{children}
 							</div>
 						</div>
 						<BottomNavigation />

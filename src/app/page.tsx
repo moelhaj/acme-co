@@ -5,6 +5,8 @@ export default async function Page() {
 	const session = await getSession();
 	!session ? redirect("/sign-in") : redirect("/dashboard");
 	return (
-		<div className="w-screen h-screen grid place-content-center bg-gray-50">Loading ...</div>
+		<div className="fixed inset-0 z-50 w-screen h-screen grid place-content-center">
+			Loading ...
+		</div>
 	);
 }

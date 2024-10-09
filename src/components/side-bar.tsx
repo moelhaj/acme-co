@@ -5,11 +5,15 @@ import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import {
 	CalendarDays,
+	FileCog,
 	Layers,
-	LayoutDashboard,
+	LayoutGrid,
 	SlidersHorizontal,
 	SquareChartGantt,
+	SquareKanban,
+	Table2,
 } from "lucide-react";
+import Logo from "./logo";
 
 export default function SideBar() {
 	const pathname = usePathname();
@@ -17,10 +21,10 @@ export default function SideBar() {
 		<aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
 			<nav className="flex flex-col items-center gap-4 px-2 sm:py-4">
 				<Link
-					href="#"
-					className="group flex h-9 w-9 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold text-primary-foreground md:h-8 md:w-8 md:text-base"
+					href="/"
+					className="group flex shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:text-base"
 				>
-					<Layers />
+					<Logo />
 					<span className="sr-only">Acme Inc</span>
 				</Link>
 				<Tooltip>
@@ -28,13 +32,12 @@ export default function SideBar() {
 						<Link
 							href="/dashboard"
 							className={cn(
-								pathname.startsWith("/dashboard")
-									? "bg-accent text-accent-foreground"
-									: "text-muted-foreground",
-								"flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground  transition-colors md:h-8 md:w-8 hover:bg-accent hover:text-accent-foreground"
+								pathname.startsWith("/dashboard") ? "bg-accent" : "",
+								"flex h-9 w-9 items-center justify-center rounded-lg   transition-colors md:h-8 md:w-8 hover:bg-accent hover"
 							)}
 						>
-							<LayoutDashboard />
+							{/* <LayoutGrid className="w-4 h-4" /> */}
+							<Table2 className="w-4 h-4" />
 							<span className="sr-only">Dashboard</span>
 						</Link>
 					</TooltipTrigger>
@@ -45,13 +48,11 @@ export default function SideBar() {
 						<Link
 							href="/projects"
 							className={cn(
-								pathname.startsWith("/projects")
-									? "bg-accent text-accent-foreground"
-									: "text-muted-foreground",
-								"flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground  transition-colors md:h-8 md:w-8 hover:bg-accent hover:text-accent-foreground"
+								pathname.startsWith("/projects") ? "bg-accent" : "",
+								"flex h-9 w-9 items-center justify-center rounded-lg   transition-colors md:h-8 md:w-8 hover:bg-accent hover"
 							)}
 						>
-							<SquareChartGantt />
+							<FileCog className="w-4 h-4" />
 							<span className="sr-only">Projects</span>
 						</Link>
 					</TooltipTrigger>
@@ -60,15 +61,28 @@ export default function SideBar() {
 				<Tooltip>
 					<TooltipTrigger asChild>
 						<Link
-							href="/calendar"
+							href="/tasks"
 							className={cn(
-								pathname.startsWith("/calendar")
-									? "bg-accent text-accent-foreground"
-									: "text-muted-foreground",
-								"flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground  transition-colors md:h-8 md:w-8 hover:bg-accent hover:text-accent-foreground"
+								pathname.startsWith("/tasks") ? "bg-accent" : "",
+								"flex h-9 w-9 items-center justify-center rounded-lg   transition-colors md:h-8 md:w-8 hover:bg-accent hover"
 							)}
 						>
-							<CalendarDays className="h-3 w-3" />
+							<SquareKanban className="w-4 h-4" />
+							<span className="sr-only">Tasks</span>
+						</Link>
+					</TooltipTrigger>
+					<TooltipContent side="right">Tasks</TooltipContent>
+				</Tooltip>
+				<Tooltip>
+					<TooltipTrigger asChild>
+						<Link
+							href="/calendar"
+							className={cn(
+								pathname.startsWith("/calendar") ? "bg-accent" : "",
+								"flex h-9 w-9 items-center justify-center rounded-lg   transition-colors md:h-8 md:w-8 hover:bg-accent hover"
+							)}
+						>
+							<CalendarDays className="w-4 h-4" />
 							<span className="sr-only">Calendar</span>
 						</Link>
 					</TooltipTrigger>
@@ -80,9 +94,9 @@ export default function SideBar() {
 					<TooltipTrigger asChild>
 						<Link
 							href="#"
-							className="flex h-9 w-9 items-center justify-center rounded-lg text-muted-foreground hover:bg-accent hover:text-accent-foreground transition-colors md:h-8 md:w-8"
+							className="flex h-9 w-9 items-center justify-center rounded-lg  hover:bg-accent hover transition-colors md:h-8 md:w-8"
 						>
-							<SlidersHorizontal />
+							<SlidersHorizontal className="w-4 h-4" />
 							<span className="sr-only">Settings</span>
 						</Link>
 					</TooltipTrigger>

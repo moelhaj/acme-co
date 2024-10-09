@@ -1,8 +1,18 @@
 "use client";
 import { signIn } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
+import {
+	Card,
+	CardContent,
+	CardDescription,
+	CardFooter,
+	CardHeader,
+	CardTitle,
+} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { cn } from "@/lib/utils";
+import { Eye, EyeOff } from "lucide-react";
 import { useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -17,34 +27,16 @@ export default function SignIn() {
 	const [showPassword, setShowPassword] = useState(false);
 	const [state, formAction] = useFormState(signIn, initialState);
 	return (
-		<div className="w-screen h-screen grid grid-cols-1 md:grid-cols-2 fixed z-50 inset-0 bg-background">
-			<div className="hidden md:flex p-3 w-full h-20 md:h-full">
-				<div className="bg-muted rounded-xl p-6 w-full h-20 md:h-full grid place-content-center">
-					<p>
-						This website is just a demo. Please do not enter any personal information.
-					</p>
-				</div>
-			</div>
-			<div className="md:flex-1 flex items-center justify-center py-12 px-3">
-				<div className="mx-auto grid w-[350px] gap-6">
-					<div className="md:hidden bg-muted rounded-xl p-6 w-full h-20 md:h-full grid place-content-center">
-						<p>
-							This website is just a demo. Please do not enter any personal
-							information.
-						</p>
-					</div>
-					<div className="grid gap-2">
-						<h1 className="text-3xl font-bold">Login</h1>
-						<p className="text-balance text-muted-foreground">
-							Experience the system as:
-						</p>
-					</div>
-
+		<div className="fixed z-50 inset-0 w-screen h-screen grid place-content-center bg-background p-3">
+			<Card>
+				<CardHeader className="space-y-1">
+					<CardTitle className="text-2xl">Sign in</CardTitle>
+					<CardDescription>Experience the system as:</CardDescription>
 					<div className="grid grid-cols-2 gap-2">
 						<Button
 							type="button"
 							onClick={() => setEmail("maeve.millay@codex.com")}
-							variant={email === "maeve.millay@codex.com" ? "secondary" : "outline"}
+							variant={email === "maeve.millay@codex.com" ? "default" : "secondary"}
 							className="w-full"
 							size="sm"
 						>
@@ -53,23 +45,22 @@ export default function SignIn() {
 						<Button
 							type="button"
 							onClick={() => setEmail("bernard.lowe@codex.com")}
-							variant={email === "bernard.lowe@codex.com" ? "secondary" : "outline"}
+							variant={email === "bernard.lowe@codex.com" ? "default" : "secondary"}
 							className="w-full"
 							size="sm"
 						>
 							Developer
 						</Button>
 					</div>
-
-					<form action={formAction} className="grid gap-4">
+				</CardHeader>
+				<CardContent>
+					<form action={formAction} className="grid gap-5">
 						<div className="grid gap-2">
 							<Label htmlFor="email">Email</Label>
 							<Input name="email" type="email" value={email} readOnly required />
 						</div>
 						<div className="grid gap-2">
-							<div className="flex items-center">
-								<Label htmlFor="password">Password</Label>
-							</div>
+							<Label htmlFor="password">Password</Label>
 							<Input
 								name="password"
 								value={password}
@@ -93,8 +84,8 @@ export default function SignIn() {
 						</div>
 						<SubmitButton />
 					</form>
-				</div>
-			</div>
+				</CardContent>
+			</Card>
 		</div>
 	);
 }

@@ -14,9 +14,9 @@ export default function Notifications() {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button className="relative" variant="ghost">
+				<Button size="icon" className="relative" variant="ghost">
 					<div className="relative z-20">
-						<Bell />
+						<Bell className="h-4 w-4" />
 					</div>
 					<span className="absolute z-10 top-3 right-2.5 flex h-1.5 w-1.5">
 						<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>

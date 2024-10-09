@@ -26,16 +26,16 @@ export default function ThemeToggler() {
 
 	if (resolvedTheme === "dark") {
 		return (
-			<Button variant="ghost" onClick={() => setTheme("light")}>
-				<Sun />
+			<Button size="icon" variant="ghost" onClick={() => setTheme("light")}>
+				<Sun className="h-4 w-4" />
 			</Button>
 		);
 	}
 
 	if (resolvedTheme === "light") {
 		return (
-			<Button variant="ghost" onClick={() => setTheme("dark")}>
-				<Moon />
+			<Button size="icon" variant="ghost" onClick={() => setTheme("dark")}>
+				<Moon className="h-4 w-4" />
 			</Button>
 		);
 	}
