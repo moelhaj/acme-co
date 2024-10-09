@@ -25,7 +25,7 @@ async function getUser(email: string): Promise<User | undefined> {
 	}
 }
 
-export async function signIn(prevState: any, formData: FormData) {
+export async function signIn(prevState: Record<string, unknown>, formData: FormData) {
 	const validatedFields = signInSchema.safeParse({
 		email: formData.get("email"),
 		password: formData.get("password"),

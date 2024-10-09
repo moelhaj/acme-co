@@ -1,8 +1,8 @@
 "use server";
 import { sql } from "@vercel/postgres";
-import { unstable_noStore as noStore } from "next/cache";
+// import { unstable_noStore as noStore } from "next/cache";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 export async function getProjects({ page = 1, limit = 10, query = "" }) {
 	const offset = (page - 1) * limit;

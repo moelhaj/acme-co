@@ -13,9 +13,7 @@ type Project = {
 	title: string;
 	details: string;
 	status: "on hold" | "in progress" | "completed" | "planning" | "archived";
-	members: User[];
-	startDate: Date;
-	dueDate: Date;
+	members: string[];
 };
 
 type Issue = {

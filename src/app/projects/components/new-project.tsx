@@ -1,11 +1,8 @@
 "use client";
-import Image from "next/image";
 import { createProject } from "@/actions/projects";
 import {
 	AlertDialog,
-	AlertDialogCancel,
 	AlertDialogContent,
-	AlertDialogDescription,
 	AlertDialogHeader,
 	AlertDialogTitle,
 	AlertDialogTrigger,
@@ -13,15 +10,16 @@ import {
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
-import { CircleCheck, Plus, X } from "lucide-react";
-import { useRef, useState } from "react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
+import { Plus, X } from "lucide-react";
+import Image from "next/image";
+import { useRef, useState } from "react";
 
 type Props = {
 	users: User[];
-	addOptimisticProject: (project: { title: string; details: string; members: string[] }) => void;
+	addOptimisticProject: (project: Project) => void;
 };
 
 export default function NewProject({ users, addOptimisticProject }: Props) {
@@ -45,10 +43,12 @@ export default function NewProject({ users, addOptimisticProject }: Props) {
 			return setError("All fields are required");
 		}
 
-		const newProject = {
+		const newProject: Project = {
+			id: crypto.randomUUID(), // Generate a unique ID for the new project
 			title,
 			details,
 			members: [],
+			status: "planning",
 		};
 
 		addOptimisticProject(newProject);
@@ -56,6 +56,7 @@ export default function NewProject({ users, addOptimisticProject }: Props) {
 			title,
 			details,
 			members,
+			status: "planning",
 		});
 		formRef.current?.reset();
 	}

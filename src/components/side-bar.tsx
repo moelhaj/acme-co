@@ -1,18 +1,9 @@
 "use client";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { cn } from "@/lib/utils";
+import { CalendarDays, FileCog, SlidersHorizontal, SquareKanban, Table2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { cn } from "@/lib/utils";
-import {
-	CalendarDays,
-	FileCog,
-	Layers,
-	LayoutGrid,
-	SlidersHorizontal,
-	SquareChartGantt,
-	SquareKanban,
-	Table2,
-} from "lucide-react";
 import Logo from "./logo";
 
 export default function SideBar() {

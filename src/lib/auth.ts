@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 const key = new TextEncoder().encode(process.env.SECRET);
 
-export async function encrypt(payload: any) {
+export async function encrypt(payload: Record<string, unknown>) {
 	if (!process.env.SECRET) {
 		throw new Error("No secret found");
 	}
@@ -17,7 +17,7 @@ export async function encrypt(payload: any) {
 		.sign(key);
 }
 
-export async function decrypt(input: string): Promise<any> {
+export async function decrypt(input: string): Promise<Record<string, unknown>> {
 	const { payload } = await jwtVerify(input, key, {
 		algorithms: ["HS256"],
 	});

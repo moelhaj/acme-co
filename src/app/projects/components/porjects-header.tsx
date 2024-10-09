@@ -18,6 +18,7 @@ export default function ProjectsHeader({
 			return [newProject, ...state];
 		}
 	);
+	console.log(optimisticProjects);
 	return (
 		<div className="flex items-center justify-between">
 			<div>

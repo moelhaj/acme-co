@@ -16,6 +16,7 @@ export default function SignIn() {
 	const [password] = useState("password");
 	const [showPassword, setShowPassword] = useState(false);
 	const [state, formAction] = useFormState(signIn, initialState);
+	console.log(state);
 	return (
 		<div className="w-screen h-screen grid grid-cols-1 md:grid-cols-2 fixed z-50 inset-0 bg-background">
 			<div className="hidden md:flex p-3 w-full h-20 md:h-full">

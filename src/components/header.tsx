@@ -1,4 +1,3 @@
-import { Layers } from "lucide-react";
 import Link from "next/link";
 import Notifications from "./notifications";
 import ThemeToggler from "./theme-toggler";
