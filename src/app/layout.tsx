@@ -1,12 +1,12 @@
-import { TooltipProvider } from "@/components/ui/tooltip";
-import { Providers } from "@/lib/theme";
-import { cn } from "@/lib/utils";
+import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { Metadata, Viewport } from "next";
+import { cn } from "@/lib/utils";
 import "./globals.css";
+import { Providers } from "@/lib/theme";
+import { TooltipProvider } from "@/components/ui/tooltip";
 import BottomNavigation from "@/components/bottom-navigation";
-import Header from "@/components/header";
 import SideBar from "@/components/side-bar";
+import Header from "@/components/header";
 
 export const metadata: Metadata = {
 	title: {
@@ -32,12 +32,6 @@ export const metadata: Metadata = {
 		siteName: "Codex",
 	},
 };
-export const viewport: Viewport = {
-	themeColor: [
-		{ media: "(prefers-color-scheme: light)", color: "white" },
-		{ media: "(prefers-color-scheme: dark)", color: "black" },
-	],
-};
 
 export default function RootLayout({
 	children,
@@ -47,16 +41,18 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={cn("antialiased text-sm leading-6", GeistSans.className)}
+				className={cn("antialiased text-sm overflow-hidden", GeistSans.className)}
 				suppressHydrationWarning
 			>
 				<Providers>
 					<TooltipProvider delayDuration={0}>
-						<div className="flex min-h-screen w-full flex-col">
+						<div className="flex sm:gap-4 sm:p-4 overflow-hidden h-screen">
 							<SideBar />
-							<div className="flex flex-col sm:pl-14 h-full mb-20">
+							<div className="bg-background rounded-lg pb-4 overflow-hidden flex flex-col w-full">
 								<Header />
-								{children}
+								<div className="flex-1 pt-4 pb-4 pl-4 pr-2 overflow-y-scroll w-full">
+									{children}
+								</div>
 							</div>
 						</div>
 						<BottomNavigation />

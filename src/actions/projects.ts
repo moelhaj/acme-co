@@ -21,7 +21,7 @@ export async function createProject(data: Omit<Project, "id">) {
 		const { title, details, status, members } = data;
 		await sql`
             INSERT INTO projects (title, details, status, members)
-			VALUES (${title}, ${details}, ${status}, ${JSON.stringify(members)})
+			VALUES (${title}, ${details}, ${status}, ${members})
         `;
 		revalidatePath("/projects");
 	} catch (error) {

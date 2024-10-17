@@ -1,8 +1,13 @@
 "use client";
 import { cn } from "@/lib/utils";
-import { CalendarDays, FileCog, SlidersHorizontal, SquareKanban, Table2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+	TbArchiveFilled,
+	TbLayoutDashboardFilled,
+	TbLayoutKanbanFilled,
+	TbSettingsFilled,
+} from "react-icons/tb";
 
 export default function BottomNavigation() {
 	const pathname = usePathname();
@@ -16,7 +21,12 @@ export default function BottomNavigation() {
 						"flex flex-col gap-1 p-2 flex-1 items-center justify-center"
 					)}
 				>
-					<Table2 className="w-4 h-4" />
+					<TbLayoutDashboardFilled
+						className={cn(
+							"text-muted-foreground",
+							pathname.startsWith("/dashboard") ? "text-primary" : ""
+						)}
+					/>
 					<span className="text-[0.65rem]">Dashboard</span>
 				</Link>
 
@@ -27,7 +37,12 @@ export default function BottomNavigation() {
 						"flex flex-col gap-1 p-2 flex-1 items-center justify-center"
 					)}
 				>
-					<FileCog className="w-4 h-4" />
+					<TbArchiveFilled
+						className={cn(
+							"text-muted-foreground",
+							pathname.startsWith("/projects") ? "text-primary" : ""
+						)}
+					/>
 					<span className="text-[0.65rem]">Projects</span>
 				</Link>
 
@@ -38,19 +53,13 @@ export default function BottomNavigation() {
 						"flex flex-col gap-1 p-2 flex-1 items-center justify-center"
 					)}
 				>
-					<SquareKanban className="w-4 h-4" />
+					<TbLayoutKanbanFilled
+						className={cn(
+							"text-muted-foreground",
+							pathname.startsWith("/tasks") ? "text-primary" : ""
+						)}
+					/>
 					<span className="text-[0.65rem]">Tasks</span>
-				</Link>
-
-				<Link
-					href="/calendar"
-					className={cn(
-						pathname.startsWith("/calendar") ? "text-primary" : "",
-						"flex flex-col gap-1 p-2 flex-1 items-center justify-center"
-					)}
-				>
-					<CalendarDays className="w-4 h-4" />
-					<span className="text-[0.65rem]">Calendar</span>
 				</Link>
 
 				<Link
@@ -60,7 +69,12 @@ export default function BottomNavigation() {
 						"flex flex-col gap-1 p-2 flex-1 items-center justify-center"
 					)}
 				>
-					<SlidersHorizontal className="w-4 h-4" />
+					<TbSettingsFilled
+						className={cn(
+							"text-muted-foreground",
+							pathname.startsWith("/settings") ? "text-primary" : ""
+						)}
+					/>
 					<span className="text-[0.65rem]">Settings</span>
 				</Link>
 			</div>

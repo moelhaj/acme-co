@@ -12,8 +12,8 @@ type Project = {
 	id: string;
 	title: string;
 	details: string;
-	status: "on hold" | "in progress" | "completed" | "planning" | "archived";
-	members: string[];
+	status: "on track" | "paused" | "cancel";
+	members: string;
 };
 
 type Issue = {

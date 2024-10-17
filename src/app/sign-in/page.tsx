@@ -6,6 +6,8 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { useFormState, useFormStatus } from "react-dom";
 import { Checkbox } from "@/components/ui/checkbox";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 const initialState = {
 	message: "",
@@ -20,18 +22,27 @@ export default function SignIn() {
 	return (
 		<div className="w-screen h-screen grid grid-cols-1 md:grid-cols-2 fixed z-50 inset-0 bg-background">
 			<div className="hidden md:flex p-3 w-full h-20 md:h-full">
-				<div className="bg-muted rounded-xl p-6 w-full h-20 md:h-full grid place-content-center">
+				<div className="bg-primary text-white rounded-xl p-6 w-full h-20 md:h-full grid place-content-center">
+					<p className="font-semibold text-lg">Important Notice: </p>
 					<p>
-						This website is just a demo. Please do not enter any personal information.
+						This website is a demo version created for personal use. Please do not enter
+						any sensitive or personal information, as the data submitted here is not
+						stored securely and will be deleted every 24 hours. By using this site, you
+						acknowledge that no liability will be accepted for any data entered. Thank
+						you for understanding!
 					</p>
 				</div>
 			</div>
-			<div className="md:flex-1 flex items-center justify-center py-12 px-3">
+			<div className="md:flex-1 flex items-center justify-center px-3">
 				<div className="mx-auto grid w-[350px] gap-6">
-					<div className="md:hidden bg-muted rounded-xl p-6 w-full h-20 md:h-full grid place-content-center">
-						<p>
-							This website is just a demo. Please do not enter any personal
-							information.
+					<div className="md:hidden bg-primary text-white rounded-xl p-3 w-full md:h-full grid place-content-center">
+						<p className="font-semibold text-base">Important Notice: </p>
+						<p className="text-xs">
+							This website is a demo version created for personal use. Please do not
+							enter any sensitive or personal information, as the data submitted here
+							is not stored securely and will be deleted every 24 hours. By using this
+							site, you acknowledge that no liability will be accepted for any data
+							entered. Thank you for understanding!
 						</p>
 					</div>
 					<div className="grid gap-2">
@@ -42,24 +53,50 @@ export default function SignIn() {
 					</div>
 
 					<div className="grid grid-cols-2 gap-2">
-						<Button
-							type="button"
+						<div
+							className={cn(
+								"flex gap-2 cursor-pointer px-4 py-2 rounded-lg border",
+								email === "maeve.millay@codex.com"
+									? "border-primary"
+									: "border-muted"
+							)}
 							onClick={() => setEmail("maeve.millay@codex.com")}
-							variant={email === "maeve.millay@codex.com" ? "secondary" : "outline"}
-							className="w-full"
-							size="sm"
 						>
-							Product Manager
-						</Button>
-						<Button
-							type="button"
+							<Image
+								src="/maeve-millay.png"
+								alt="Maeve Millay"
+								width={25}
+								height={25}
+								className="h-6 w-6 rounded-full object-contain"
+							/>
+							<div>
+								<p className="text-xs font-semibold">Maeve Millay</p>
+								<p className="text-xs text-muted-foreground leading-3">
+									Product Manager
+								</p>
+							</div>
+						</div>
+						<div
+							className={cn(
+								"flex gap-2 cursor-pointer px-4 py-2 rounded-lg border",
+								email === "bernard.lowe@codex.com"
+									? "border-primary"
+									: "border-muted"
+							)}
 							onClick={() => setEmail("bernard.lowe@codex.com")}
-							variant={email === "bernard.lowe@codex.com" ? "secondary" : "outline"}
-							className="w-full"
-							size="sm"
 						>
-							Developer
-						</Button>
+							<Image
+								src="/bernard-lowe.png"
+								alt="Bernard Lowe"
+								width={25}
+								height={25}
+								className="h-6 w-6 rounded-full object-contain"
+							/>
+							<div>
+								<p className="text-xs font-semibold">Bernard Lowe</p>
+								<p className="text-xs text-muted-foreground leading-3">Developer</p>
+							</div>
+						</div>
 					</div>
 
 					<form action={formAction} className="grid gap-4">
@@ -86,7 +123,7 @@ export default function SignIn() {
 								/>
 								<label
 									htmlFor="show-password"
-									className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+									className="text-balance text-muted-foreground peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
 								>
 									Show password
 								</label>

@@ -1,6 +1,6 @@
-"use client";
+import React from "react";
 
-export default function Dashboard() {
+export default function Tasks() {
 	return (
 		<div>
 			<p>Under construction</p>

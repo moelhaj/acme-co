@@ -1,99 +1,118 @@
 "use client";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
-import { CalendarDays, FileCog, SlidersHorizontal, SquareKanban, Table2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import {
+	TbArchiveFilled,
+	TbLayoutDashboardFilled,
+	TbLayoutKanbanFilled,
+	TbSettingsFilled,
+} from "react-icons/tb";
 import Logo from "./logo";
+
+const links = [
+	{
+		id: 1,
+		href: "/dashboard",
+		label: "Dashboard",
+		icon: <TbLayoutDashboardFilled className="w-4 h-4" />,
+	},
+	{
+		id: 2,
+		href: "/projects",
+		label: "Projects",
+		icon: <TbArchiveFilled className="w-4 h-4" />,
+	},
+	{
+		id: 3,
+		href: "/tasks",
+		label: "Tasks",
+		icon: <TbLayoutKanbanFilled className="w-4 h-4" />,
+	},
+];
 
 export default function SideBar() {
 	const pathname = usePathname();
+
 	return (
-		<aside className="fixed inset-y-0 left-0 z-10 hidden w-14 flex-col border-r bg-background sm:flex">
-			<nav className="flex flex-col items-center gap-4 px-2 sm:py-4">
+		<div className="hidden sm:flex bg-background rounded-lg h-full duration-300 pb-2 min-w-[60px]">
+			<div className="flex flex-col w-full">
 				<Link
 					href="/"
-					className="group flex shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:text-base"
+					className="rounded-tl-lg rounded-tr-lg flex p-4 items-center justify-center"
 				>
 					<Logo />
-					<span className="sr-only">Acme Inc</span>
 				</Link>
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<Link
-							href="/dashboard"
-							className={cn(
-								pathname.startsWith("/dashboard") ? "bg-accent" : "",
-								"flex h-9 w-9 items-center justify-center rounded-lg   transition-colors md:h-8 md:w-8 hover:bg-accent hover"
-							)}
-						>
-							{/* <LayoutGrid className="w-4 h-4" /> */}
-							<Table2 className="w-4 h-4" />
-							<span className="sr-only">Dashboard</span>
-						</Link>
-					</TooltipTrigger>
-					<TooltipContent side="right">Dashboard</TooltipContent>
-				</Tooltip>
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<Link
-							href="/projects"
-							className={cn(
-								pathname.startsWith("/projects") ? "bg-accent" : "",
-								"flex h-9 w-9 items-center justify-center rounded-lg   transition-colors md:h-8 md:w-8 hover:bg-accent hover"
-							)}
-						>
-							<FileCog className="w-4 h-4" />
-							<span className="sr-only">Projects</span>
-						</Link>
-					</TooltipTrigger>
-					<TooltipContent side="right">Projects</TooltipContent>
-				</Tooltip>
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<Link
-							href="/tasks"
-							className={cn(
-								pathname.startsWith("/tasks") ? "bg-accent" : "",
-								"flex h-9 w-9 items-center justify-center rounded-lg   transition-colors md:h-8 md:w-8 hover:bg-accent hover"
-							)}
-						>
-							<SquareKanban className="w-4 h-4" />
-							<span className="sr-only">Tasks</span>
-						</Link>
-					</TooltipTrigger>
-					<TooltipContent side="right">Tasks</TooltipContent>
-				</Tooltip>
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<Link
-							href="/calendar"
-							className={cn(
-								pathname.startsWith("/calendar") ? "bg-accent" : "",
-								"flex h-9 w-9 items-center justify-center rounded-lg   transition-colors md:h-8 md:w-8 hover:bg-accent hover"
-							)}
-						>
-							<CalendarDays className="w-4 h-4" />
-							<span className="sr-only">Calendar</span>
-						</Link>
-					</TooltipTrigger>
-					<TooltipContent side="right">Calendar</TooltipContent>
-				</Tooltip>
-			</nav>
-			<nav className="mt-auto flex flex-col items-center gap-4 px-2 sm:py-4">
-				<Tooltip>
-					<TooltipTrigger asChild>
-						<Link
-							href="#"
-							className="flex h-9 w-9 items-center justify-center rounded-lg  hover:bg-accent hover transition-colors md:h-8 md:w-8"
-						>
-							<SlidersHorizontal className="w-4 h-4" />
-							<span className="sr-only">Settings</span>
-						</Link>
-					</TooltipTrigger>
-					<TooltipContent side="right">Settings</TooltipContent>
-				</Tooltip>
-			</nav>
-		</aside>
+
+				{/* <div className="h-12" /> */}
+
+				<nav className="flex flex-col px-2 gap-3 items-center justify-center">
+					{links.map(link => (
+						<SideBarItem
+							key={link.id}
+							href={link.href}
+							icon={link.icon}
+							label={link.label}
+							pathname={pathname}
+						/>
+					))}
+				</nav>
+
+				<div className="flex-1" />
+
+				<div className="flex flex-col px-2 gap-3 items-center justify-center">
+					<Tooltip>
+						<TooltipTrigger asChild>
+							<Link
+								href="/settings"
+								className={cn(
+									"group rounded-lg flex p-2 items-center justify-center",
+									pathname.startsWith("/settings") ? "bg-accent" : ""
+								)}
+							>
+								<TbSettingsFilled
+									className={cn(
+										"w-4 h-4",
+										pathname.startsWith("/settings")
+											? ""
+											: "text-muted-foreground"
+									)}
+								/>
+							</Link>
+						</TooltipTrigger>
+						<TooltipContent side="right">Settings</TooltipContent>
+					</Tooltip>
+				</div>
+			</div>
+		</div>
+	);
+}
+
+type SideBarItemProps = {
+	href: string;
+	icon: React.ReactNode;
+	label: string;
+	pathname: string;
+};
+
+function SideBarItem({ href, icon, label, pathname }: SideBarItemProps) {
+	return (
+		<Tooltip>
+			<TooltipTrigger asChild>
+				<Link
+					href={href}
+					className={cn(
+						"group rounded-lg flex p-2 items-center justify-center",
+						pathname.startsWith(href) ? "bg-accent" : ""
+					)}
+				>
+					<div className={cn(pathname.startsWith(href) ? "" : "text-muted-foreground")}>
+						{icon}
+					</div>
+				</Link>
+			</TooltipTrigger>
+			<TooltipContent side="right">{label}</TooltipContent>
+		</Tooltip>
 	);
 }

@@ -8,7 +8,7 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Bell } from "lucide-react";
+import { TbBellFilled } from "react-icons/tb";
 
 export default function Notifications() {
 	return (
@@ -16,7 +16,7 @@ export default function Notifications() {
 			<DropdownMenuTrigger asChild>
 				<Button size="icon" className="relative" variant="ghost">
 					<div className="relative z-20">
-						<Bell className="h-4 w-4" />
+						<TbBellFilled className="text-muted-foreground" />
 					</div>
 					<span className="absolute z-10 top-3 right-2.5 flex h-1.5 w-1.5">
 						<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-400 opacity-75"></span>
@@ -27,8 +27,6 @@ export default function Notifications() {
 			<DropdownMenuContent align="end">
 				<DropdownMenuLabel>My Account</DropdownMenuLabel>
 				<DropdownMenuSeparator />
-				<DropdownMenuItem>Settings</DropdownMenuItem>
-				<DropdownMenuItem>Support</DropdownMenuItem>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem>Logout</DropdownMenuItem>
 			</DropdownMenuContent>

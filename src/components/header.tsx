@@ -8,7 +8,7 @@ import Logo from "./logo";
 export default async function Header() {
 	const session = (await getSession()) as { user: User } | null;
 	return (
-		<header className="flex items-center gap-4 px-4 sm:bg-transparent sm:px-6 py-2">
+		<header className="flex items-center gap-4 px-4 py-2 border-b border-muted">
 			<Link
 				href="/"
 				className="sm:hidden group flex shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:text-base"

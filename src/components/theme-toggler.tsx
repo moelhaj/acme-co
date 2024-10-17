@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import { Moon, Sun } from "lucide-react";
+import { TbMoonFilled, TbBrightnessDownFilled } from "react-icons/tb";
 
 export default function ThemeToggler() {
 	const [mounted, setMounted] = useState(false);
@@ -27,7 +27,7 @@ export default function ThemeToggler() {
 	if (resolvedTheme === "dark") {
 		return (
 			<Button size="icon" variant="ghost" onClick={() => setTheme("light")}>
-				<Sun className="h-4 w-4" />
+				<TbBrightnessDownFilled className="text-muted-foreground" />
 			</Button>
 		);
 	}
@@ -35,7 +35,7 @@ export default function ThemeToggler() {
 	if (resolvedTheme === "light") {
 		return (
 			<Button size="icon" variant="ghost" onClick={() => setTheme("dark")}>
-				<Moon className="h-4 w-4" />
+				<TbMoonFilled className="text-muted-foreground" />
 			</Button>
 		);
 	}
