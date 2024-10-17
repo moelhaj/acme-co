@@ -3,9 +3,6 @@ import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
-	DropdownMenuItem,
-	DropdownMenuLabel,
-	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { TbBellFilled } from "react-icons/tb";
@@ -25,10 +22,9 @@ export default function Notifications() {
 				</Button>
 			</DropdownMenuTrigger>
 			<DropdownMenuContent align="end">
-				<DropdownMenuLabel>My Account</DropdownMenuLabel>
-				<DropdownMenuSeparator />
-				<DropdownMenuSeparator />
-				<DropdownMenuItem>Logout</DropdownMenuItem>
+				<div className="p-6 grid place-content-center">
+					<p>No notifications</p>
+				</div>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);
