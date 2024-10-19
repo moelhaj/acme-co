@@ -1,6 +1,4 @@
 "use client";
-import { signOut } from "@/actions/auth";
-import { Button } from "@/components/ui/button";
 import {
 	DropdownMenu,
 	DropdownMenuContent,
@@ -8,31 +6,59 @@ import {
 	DropdownMenuSeparator,
 	DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import Image from "next/image";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { ChevronsUpDown, LogOut } from "lucide-react";
+import { signOut } from "@/actions/auth";
+import { DropdownMenuLabel } from "@/components/ui/dropdown-menu";
+import { SidebarMenuButton } from "@/components/ui/sidebar";
 
 export default function UserMenu({ user }: { user: User }) {
 	return (
 		<DropdownMenu>
 			<DropdownMenuTrigger asChild>
-				<Button size="icon" className="relative" variant="ghost">
-					<Image
-						src={`/${user?.avatar}`}
-						alt={user?.name || "user avatar"}
-						width={25}
-						height={25}
-						className="h-6 w-6 rounded-full object-contain"
-					/>
-				</Button>
-			</DropdownMenuTrigger>
-			<DropdownMenuContent align="end">
-				<div className="flex items-center gap-1 px-3 py-1">
-					<div className="flex flex-col">
-						<p className="text-xs font-semibold">{user?.name}</p>
-						<p className="text-xs text-muted-foreground leading-3">{user?.title}</p>
+				<SidebarMenuButton
+					size="lg"
+					className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
+				>
+					<Avatar className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
+						<AvatarImage
+							src={user.avatar}
+							alt={user.name}
+							className="h-6 w-6 rounded-full object-contain"
+						/>
+						<AvatarFallback className="rounded-lg">
+							{user.name
+								.split(" ")
+								.map(name => name[0])
+								.join("")}
+						</AvatarFallback>
+					</Avatar>
+					<div className="grid flex-1 text-left text-sm leading-tight">
+						<span className="truncate font-semibold">{user.name}</span>
+						<span className="truncate text-xs">{user.email}</span>
 					</div>
-				</div>
+					<ChevronsUpDown className="ml-auto size-4" />
+				</SidebarMenuButton>
+			</DropdownMenuTrigger>
+			<DropdownMenuContent
+				className="w-[--radix-dropdown-menu-trigger-width] min-w-56 rounded-lg"
+				side="bottom"
+				align="end"
+				sideOffset={4}
+			>
+				<DropdownMenuLabel className="p-0 font-normal">
+					<div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+						<div className="grid flex-1 text-left text-sm leading-tight">
+							<span className="truncate font-semibold">{user.name}</span>
+							<span className="truncate text-xs">{user.email}</span>
+						</div>
+					</div>
+				</DropdownMenuLabel>
 				<DropdownMenuSeparator />
-				<DropdownMenuItem onClick={() => signOut()}>Logout</DropdownMenuItem>
+				<DropdownMenuItem onClick={() => signOut()}>
+					<LogOut />
+					Log out
+				</DropdownMenuItem>
 			</DropdownMenuContent>
 		</DropdownMenu>
 	);
