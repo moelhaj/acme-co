@@ -20,7 +20,7 @@ export default function SignIn() {
 	const [state, formAction] = useFormState(signIn, initialState);
 	console.log(state);
 	return (
-		<div className="w-screen h-screen grid grid-cols-1 md:grid-cols-2 fixed z-50 inset-0 bg-background">
+		<div className="w-screen min-h-screen grid grid-cols-1 md:grid-cols-2 fixed z-50 inset-0 bg-background">
 			<div className="hidden md:flex p-3 w-full h-20 md:h-full">
 				<div className="bg-primary text-white rounded-xl p-6 w-full h-20 md:h-full grid place-content-center">
 					<p className="font-semibold text-lg">Important Notice: </p>
@@ -33,7 +33,7 @@ export default function SignIn() {
 					</p>
 				</div>
 			</div>
-			<div className="md:flex-1 flex justify-center p-3">
+			<div className="md:flex-1 flex justify-center items-center px-3">
 				<div className="mx-auto grid w-[350px] gap-6">
 					<div className="md:hidden bg-primary text-white rounded-xl p-3 w-full md:h-full grid place-content-center">
 						<p className="font-semibold text-base">Important Notice: </p>
