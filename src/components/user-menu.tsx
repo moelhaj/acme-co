@@ -56,8 +56,8 @@ export default function UserMenu({ user }: { user: User }) {
 				</DropdownMenuLabel>
 				<DropdownMenuSeparator />
 				<DropdownMenuItem
-					onClick={() => {
-						signOut();
+					onClick={async () => {
+						await signOut();
 						// reload the page
 						window.location.reload();
 					}}
