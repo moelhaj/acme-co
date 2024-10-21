@@ -14,6 +14,11 @@ type Project = {
 	details: string;
 	status: "on track" | "paused" | "cancel";
 	members: string;
+	timestamp?: date;
+	todo_count?: number;
+	in_progress_count?: number;
+	in_review_count?: number;
+	done_count?: number;
 };
 
 type Issue = {

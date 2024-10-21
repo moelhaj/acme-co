@@ -1,9 +1,8 @@
-// import { getProjects } from "@/actions/projects";
-// import { getUsers } from "@/actions/users";
-// import Loader from "@/components/loader";
-// import { Suspense } from "react";
-// import ProjectsList from "./components/projects-list";
-import UnderDevelopment from "@/components/under-development";
+import { getProjects } from "@/actions/projects";
+import { getUsers } from "@/actions/users";
+import Loader from "@/components/loader";
+import { Suspense } from "react";
+import ProjectsList from "./projects-list";
 
 type SearchParams = {
 	page?: number;
@@ -12,20 +11,27 @@ type SearchParams = {
 };
 
 export default async function Projects({ searchParams }: { searchParams: SearchParams }) {
-	console.log(searchParams);
-	// const page = searchParams?.page || 1;
-	// const limit = searchParams?.limit || 10;
-	// const query = searchParams?.query || "";
-	// const { projects } = await getProjects({ page, limit, query });
-	// const { users } = await getUsers();
+	const page = searchParams?.page || 1;
+	const limit = searchParams?.limit || 10;
+	const query = searchParams?.query || "";
+	const projectsData = await getProjects({ page, limit, query });
+	if (!projectsData) {
+		throw new Error("Failed to fetch projects");
+	}
+	const { projects: rawProjects, count } = projectsData;
+	const projects = rawProjects.map(project => ({
+		id: project.id,
+		title: project.title,
+		details: project.details,
+		status: project.status,
+		members: project.members,
+	}));
+	const { users } = await getUsers();
 
 	return (
-		// <Suspense fallback={<Loader />}>
-		// 	<ProjectsList projects={projects} users={users} />
-		// 	<div className="sm:hidden h-16 w-full" />
-		// </Suspense>
-		<div>
-			<UnderDevelopment />
-		</div>
+		<Suspense fallback={<Loader />}>
+			<ProjectsList count={count} projects={projects} users={users} />
+			<div className="sm:hidden h-16 w-full" />
+		</Suspense>
 	);
 }

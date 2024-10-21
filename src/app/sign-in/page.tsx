@@ -33,7 +33,7 @@ export default function SignIn() {
 					</p>
 				</div>
 			</div>
-			<div className="md:flex-1 flex items-center justify-center px-3">
+			<div className="md:flex-1 flex justify-center p-3">
 				<div className="mx-auto grid w-[350px] gap-6">
 					<div className="md:hidden bg-primary text-white rounded-xl p-3 w-full md:h-full grid place-content-center">
 						<p className="font-semibold text-base">Important Notice: </p>
