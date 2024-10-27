@@ -10,9 +10,10 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
-import { Sheet, SheetContent } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTitle } from "@/components/ui/sheet";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import * as VisuallyHidden from "@radix-ui/react-visually-hidden";
 
 const SIDEBAR_COOKIE_NAME = "sidebar:state";
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -36,7 +37,7 @@ const SidebarContext = React.createContext<SidebarContext | null>(null);
 function useSidebar() {
 	const context = React.useContext(SidebarContext);
 	if (!context) {
-		throw new Error("useSidebar must be used within a Sidebar.");
+		throw new Error("useSidebar must be used within a SidebarProvider.");
 	}
 
 	return context;
@@ -130,7 +131,7 @@ const SidebarProvider = React.forwardRef<
 							} as React.CSSProperties
 						}
 						className={cn(
-							"group/sidebar-wrapper flex min-h-svh w-full text-sidebar-foreground has-[[data-variant=inset]]:bg-sidebar",
+							"group/sidebar-wrapper flex min-h-svh w-full has-[[data-variant=inset]]:bg-sidebar",
 							className
 						)}
 						ref={ref}
@@ -170,7 +171,7 @@ const Sidebar = React.forwardRef<
 			return (
 				<div
 					className={cn(
-						"flex h-full w-[--sidebar-width] flex-col bg-white text-sidebar-foreground",
+						"flex h-full w-[--sidebar-width] flex-col bg-sidebar text-sidebar-foreground",
 						className
 					)}
 					ref={ref}
@@ -184,6 +185,9 @@ const Sidebar = React.forwardRef<
 		if (isMobile) {
 			return (
 				<Sheet open={openMobile} onOpenChange={setOpenMobile} {...props}>
+					<SheetTitle>
+						<VisuallyHidden.Root>Menu</VisuallyHidden.Root>
+					</SheetTitle>
 					<SheetContent
 						data-sidebar="sidebar"
 						data-mobile="true"
@@ -204,7 +208,7 @@ const Sidebar = React.forwardRef<
 		return (
 			<div
 				ref={ref}
-				className="group peer hidden md:block"
+				className="group peer hidden md:block text-sidebar-foreground"
 				data-state={state}
 				data-collapsible={state === "collapsed" ? collapsible : ""}
 				data-variant={variant}

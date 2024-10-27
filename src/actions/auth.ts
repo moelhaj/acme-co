@@ -1,10 +1,10 @@
 "use server";
 import { z } from "zod";
-import { sql } from "@vercel/postgres";
 import { redirect } from "next/navigation";
 import { compare } from "bcryptjs";
 import { encrypt } from "@/lib/auth";
 import { cookies } from "next/headers";
+import { prisma } from "@/lib/prisma";
 
 const signInSchema = z.object({
 	email: z.string({
@@ -17,8 +17,16 @@ const signInSchema = z.object({
 
 async function getUser(email: string): Promise<User | undefined> {
 	try {
-		const user = await sql<User>`SELECT * FROM users WHERE email=${email}`;
-		return user.rows[0];
+		const user = await prisma.user.findFirst({
+			where: {
+				email,
+			},
+		});
+        console.log(user)
+		if (!user) {
+			return undefined;
+		}
+		return user;
 	} catch (error) {
 		console.error("Failed to fetch user:", error);
 		throw new Error("Failed to fetch user.");
@@ -58,11 +66,11 @@ export async function signIn(prevState: Record<string, unknown>, formData: FormD
 
 	const expires = new Date(Date.now() + 12 * 60 * 60 * 1000);
 	const session = await encrypt({ user, expires });
-	cookies().set("session", session, { expires, httpOnly: true });
+	(await cookies()).set("session", session, { expires, httpOnly: true });
 	redirect("/");
 }
 
 export async function signOut() {
-	cookies().set("session", "", { expires: new Date(0) });
+	(await cookies()).set("session", "", { expires: new Date(0) });
 	redirect("/");
 }

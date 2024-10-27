@@ -1,21 +1,21 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
 	const { pathname } = request.nextUrl;
-	const cookie = request.cookies.get("session");
+	const cookie = await request.cookies.get("session");
 
 	if (pathname === "/") {
 		return NextResponse.redirect(new URL("/dashboard", request.url));
 	}
 
-	// if (!protectedRoutes.includes(pathname) && pathname !== "/sign-in") {
-	// 	if (cookie) {
-	// 		return NextResponse.redirect(new URL("/dashboard", request.url));
-	// 	} else {
-	// 		return NextResponse.redirect(new URL("/sign-in", request.url));
-	// 	}
-	// }
+	if (!protectedRoutes.includes(pathname) && pathname !== "/sign-in") {
+		if (cookie) {
+			return NextResponse.redirect(new URL("/dashboard", request.url));
+		} else {
+			return NextResponse.redirect(new URL("/sign-in", request.url));
+		}
+	}
 
 	if (protectedRoutes.includes(pathname)) {
 		if (!cookie) {

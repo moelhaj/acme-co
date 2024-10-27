@@ -4,21 +4,17 @@ type User = {
 	email: string;
 	password: string;
 	title: string;
-	avatar: string;
-	role: "admin" | "user";
+	avatar?: string | null;
+	role: string;
 };
 
 type Project = {
 	id: string;
 	title: string;
 	details: string;
-	status: "on track" | "paused" | "cancel";
-	members: string;
-	timestamp?: date;
-	todo_count?: number;
-	in_progress_count?: number;
-	in_review_count?: number;
-	done_count?: number;
+	status: string;
+	members: User[];
+	issues: Issue[];
 };
 
 type Issue = {

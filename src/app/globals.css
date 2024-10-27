@@ -3,14 +3,10 @@
 @tailwind utilities;
 
 body {
-	font-family: Arial, Helvetica, sans-serif;
-	overscroll-behavior: none;
-}
-
-@layer utilities {
-	.text-balance {
-		text-wrap: balance;
-	}
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+		"Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 @layer base {
@@ -84,35 +80,6 @@ body {
 		--sidebar-border: 240 3.7% 15.9%;
 		--sidebar-ring: 217.2 91.2% 59.8%;
 	}
-}
-
-@layer base {
-	* {
-		@apply border-border;
-	}
-	body {
-		@apply bg-muted text-foreground;
-	}
-}
-
-*::-webkit-scrollbar {
-	width: 15px;
-}
-
-*::-webkit-scrollbar-track {
-	background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-	@apply bg-muted;
-	border-radius: 20px;
-	background-clip: padding-box;
-	border: 5px solid rgba(0, 0, 0, 0);
-}
-
-*::-webkit-scrollbar-thumb:hover {
-	background-clip: padding-box;
-	border: 5px solid rgba(0, 0, 0, 0);
 }
 
 @layer base {

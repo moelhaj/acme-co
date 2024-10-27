@@ -1,0 +1,51 @@
+generator client {
+    provider = "prisma-client-js"
+}
+
+datasource db {
+    provider  = "postgresql"
+    url       = env("POSTGRES_PRISMA_URL")
+    directUrl = env("POSTGRES_URL_NON_POOLING")
+}
+
+model Issue {
+    id         String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+    title      String
+    details    String
+    status     String
+    severity   String
+    project_id String?  @db.Uuid
+    user_id    String?  @db.Uuid
+    projects   Project? @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_project")
+    users      User?    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user")
+
+    createdAt DateTime? @default(now()) @db.Timestamp(6)
+    updatedAt DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model Project {
+    id      String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+    title   String
+    details String
+    status  String
+    members User[]
+    issues  Issue[]
+
+    createdAt DateTime? @default(now()) @db.Timestamp(6)
+    updatedAt DateTime? @default(now()) @db.Timestamp(6)
+}
+
+model User {
+    id       String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
+    name     String    @db.VarChar(255)
+    email    String    @unique
+    password String
+    title    String
+    avatar   String?
+    role     String
+    issues   Issue[]
+    projects Project[]
+
+    createdAt DateTime? @default(now()) @db.Timestamp(6)
+    updatedAt DateTime? @default(now()) @db.Timestamp(6)
+}

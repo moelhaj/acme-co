@@ -3,8 +3,6 @@ import Header from "@/components/header";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Providers } from "@/lib/theme";
-import { cn } from "@/lib/utils";
-import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import "./globals.css";
 
@@ -40,10 +38,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en" suppressHydrationWarning>
-			<body
-				className={cn("antialiased text-sm", GeistSans.className)}
-				suppressHydrationWarning
-			>
+			<body className="antialiased text-sm" suppressHydrationWarning>
 				<Providers>
 					<TooltipProvider delayDuration={0}>
 						<SidebarProvider>

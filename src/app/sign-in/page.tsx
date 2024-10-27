@@ -3,8 +3,8 @@ import { signIn } from "@/actions/auth";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
-import { useFormState, useFormStatus } from "react-dom";
+import { useState, useActionState } from "react";
+import { useFormStatus } from "react-dom";
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -17,7 +17,7 @@ export default function SignIn() {
 	const [email, setEmail] = useState("maeve.millay@codex.com");
 	const [password] = useState("password");
 	const [showPassword, setShowPassword] = useState(false);
-	const [state, formAction] = useFormState(signIn, initialState);
+	const [state, formAction] = useActionState(signIn, initialState);
 	console.log(state);
 	return (
 		<div className="w-screen min-h-screen grid grid-cols-1 md:grid-cols-2 fixed z-50 inset-0 bg-background">
