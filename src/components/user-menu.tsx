@@ -22,7 +22,7 @@ export default function UserMenu({ user }: { user: User }) {
 				>
 					<Avatar className="h-8 w-8 rounded-lg bg-primary flex items-center justify-center">
 						<AvatarImage
-							src={user.avatar}
+							src={user.avatar ?? ""}
 							alt={user.name}
 							className="h-6 w-6 rounded-full object-contain"
 						/>
