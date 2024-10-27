@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/sidebar";
 import Logo from "./logo";
 import Nav from "./nav";
+import Link from "next/link";
 import UserMenuWrapper from "./user-menu-wrapper";
 
 export default function AppSidebar() {
@@ -21,7 +22,7 @@ export default function AppSidebar() {
 					<SidebarMenu>
 						<SidebarMenuItem>
 							<SidebarMenuButton size="lg" asChild>
-								<a href="/">
+								<Link href="/">
 									<div className="flex aspect-square size-8 items-center justify-center">
 										<Logo />
 									</div>
@@ -29,7 +30,7 @@ export default function AppSidebar() {
 										<span className="truncate font-semibold">Acme-co</span>
 										<span className="truncate text-xs">Enterprise</span>
 									</div>
-								</a>
+								</Link>
 							</SidebarMenuButton>
 						</SidebarMenuItem>
 					</SidebarMenu>
