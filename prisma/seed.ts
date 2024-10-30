@@ -1,4 +1,4 @@
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient, UserRoles } from "@prisma/client";
 import bycrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
@@ -7,7 +7,7 @@ const users = [
 	{
 		name: "Maeve Millay",
 		email: "maeve.millay@codex.com",
-		role: "admin",
+		role: UserRoles.ADMIN,
 		password: "password",
 		avatar: "maeve-millay.png",
 		title: "Product Manager",
@@ -15,7 +15,7 @@ const users = [
 	{
 		name: "Bernard Lowe",
 		email: "bernard.lowe@codex.com",
-		role: "user",
+		role: UserRoles.USER,
 		password: "password",
 		avatar: "bernard-lowe.png",
 		title: "Frontend Developer",
@@ -23,7 +23,7 @@ const users = [
 	{
 		name: "Dolores Abernathy",
 		email: "dolores.abernathy@codex.com",
-		role: "user",
+		role: UserRoles.USER,
 		password: "password",
 		avatar: "dolores-abernathy.png",
 		title: "Backend Developer",
@@ -31,7 +31,7 @@ const users = [
 	{
 		name: "Robert Ford",
 		email: "robert.ford@codex.com",
-		role: "user",
+		role: UserRoles.USER,
 		password: "password",
 		avatar: "robert-ford.png",
 		title: "Full-Stack Developer",
@@ -39,7 +39,7 @@ const users = [
 	{
 		name: "Clementine Pennyfeather",
 		email: "clementine.pennyfeather@codex.com",
-		role: "user",
+		role: UserRoles.USER,
 		password: "password",
 		avatar: "clementine-pennyfeather.png",
 		title: "QA Engineer",

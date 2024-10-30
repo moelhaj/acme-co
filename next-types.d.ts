@@ -21,8 +21,8 @@ type Issue = {
 	id: string;
 	title: string;
 	description: string;
-	status: "to do" | "in progress" | "in review" | "done";
-	severity: "minor" | "major" | "critical";
+	status: string;
+	severity: string;
 	userId: string;
 	projectId: string;
 };

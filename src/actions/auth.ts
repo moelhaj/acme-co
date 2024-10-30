@@ -22,7 +22,6 @@ async function getUser(email: string): Promise<User | undefined> {
 				email,
 			},
 		});
-        console.log(user)
 		if (!user) {
 			return undefined;
 		}

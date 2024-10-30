@@ -8,44 +8,86 @@ datasource db {
     directUrl = env("POSTGRES_URL_NON_POOLING")
 }
 
-model Issue {
-    id         String   @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-    title      String
-    details    String
-    status     String
-    severity   String
-    project_id String?  @db.Uuid
-    user_id    String?  @db.Uuid
-    projects   Project? @relation(fields: [project_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_project")
-    users      User?    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "fk_user")
+model Assignment {
+    id        String        @id @default(cuid())
+    note      String?
+    status    IssueStatus
+    severity  IssueSeverity
+    createdAt DateTime?     @default(now()) @db.Timestamp(6)
+    updatedAt DateTime?     @default(now()) @db.Timestamp(6)
+    // relations
+    userId    String?
+    user      User?         @relation(fields: [userId], references: [id])
+    issueId   String?
+    issue     Issue?        @relation(fields: [issueId], references: [id])
+}
 
-    createdAt DateTime? @default(now()) @db.Timestamp(6)
-    updatedAt DateTime? @default(now()) @db.Timestamp(6)
+model Issue {
+    id          String        @id @default(cuid())
+    title       String
+    details     String
+    status      IssueStatus
+    severity    IssueSeverity
+    createdAt   DateTime?     @default(now()) @db.Timestamp(6)
+    updatedAt   DateTime?     @default(now()) @db.Timestamp(6)
+    // relations
+    assignments Assignment[]
+    projectId   String?
+    project     Project?      @relation(fields: [projectId], references: [id])
 }
 
 model Project {
-    id      String  @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-    title   String
-    details String
-    status  String
-    members User[]
-    issues  Issue[]
-
-    createdAt DateTime? @default(now()) @db.Timestamp(6)
-    updatedAt DateTime? @default(now()) @db.Timestamp(6)
+    id        String        @id @default(cuid())
+    title     String
+    details   String
+    status    ProjectStatus
+    createdAt DateTime?     @default(now()) @db.Timestamp(6)
+    updatedAt DateTime?     @default(now()) @db.Timestamp(6)
+    // relations
+    issues    Issue[]
+    users     User[]
 }
 
 model User {
-    id       String    @id @default(dbgenerated("uuid_generate_v4()")) @db.Uuid
-    name     String    @db.VarChar(255)
-    email    String    @unique
-    password String
-    title    String
-    avatar   String?
-    role     String
-    issues   Issue[]
-    projects Project[]
+    id          String       @id @default(cuid())
+    name        String       @db.VarChar(255)
+    email       String       @unique
+    password    String
+    title       String
+    avatar      String?
+    role        UserRoles
+    createdAt   DateTime?    @default(now()) @db.Timestamp(6)
+    updatedAt   DateTime?    @default(now()) @db.Timestamp(6)
+    // relations
+    assignments Assignment[]
+    projects    Project[]
+}
 
-    createdAt DateTime? @default(now()) @db.Timestamp(6)
-    updatedAt DateTime? @default(now()) @db.Timestamp(6)
+enum IssueStatus {
+    OPEN
+    IN_PROGRESS
+    RESOLVED
+    IN_REVIEW
+    CLOSED
+}
+
+enum IssueSeverity {
+    LOW
+    MEDIUM
+    HIGH
+    CRITICAL
+}
+
+enum ProjectStatus {
+    OPEN
+    ON_TRACK
+    DELAYED
+    CANCELLED
+    COMPLETED
+    ON_HOLD
+}
+
+enum UserRoles {
+    ADMIN
+    USER
 }
