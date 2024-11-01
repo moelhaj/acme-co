@@ -1,28 +1,30 @@
-type User = {
+import { ProjectStatus, UserRoles, IssueSeverity, IssueStatus } from "@prisma/client";
+
+export type User = {
 	id: string;
 	name: string;
 	email: string;
 	password: string;
 	title: string;
 	avatar?: string | null;
-	role: string;
+	role: UserRoles;
 };
 
-type Project = {
+export type Project = {
 	id: string;
 	title: string;
 	details: string;
-	status: string;
-	members: User[];
+	status: ProjectStatus;
+	users: User[];
 	issues: Issue[];
 };
 
-type Issue = {
+export type Issue = {
 	id: string;
 	title: string;
 	description: string;
-	status: string;
-	severity: string;
+	status: IssueStatus;
+	severity: IssueSeverity;
 	userId: string;
 	projectId: string;
 };

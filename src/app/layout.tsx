@@ -43,9 +43,11 @@ export default function RootLayout({
 					<TooltipProvider delayDuration={0}>
 						<SidebarProvider>
 							<AppSidebar />
-							<main className="w-full">
-								<Header />
-								<div className="w-full h-full p-4">{children}</div>
+							<main className="w-full p-2">
+								<div className="border rounded-lg h-full">
+									<Header />
+									<div className="w-full h-full p-4">{children}</div>
+								</div>
 							</main>
 						</SidebarProvider>
 					</TooltipProvider>

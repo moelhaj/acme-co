@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
@@ -34,6 +35,8 @@ const links = [
 
 export default function SideBar() {
 	const pathname = usePathname();
+
+	useEffect(() => {}, []);
 
 	return (
 		<div className="hidden sm:flex bg-background rounded-lg h-full duration-300 pb-2 min-w-[60px]">

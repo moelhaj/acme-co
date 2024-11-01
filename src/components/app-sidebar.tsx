@@ -16,7 +16,7 @@ import UserMenuWrapper from "./user-menu-wrapper";
 
 export default function AppSidebar() {
 	return (
-		<Sidebar>
+		<Sidebar variant="floating">
 			<SidebarContent>
 				<SidebarHeader>
 					<SidebarMenu>

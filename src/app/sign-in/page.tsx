@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState, useActionState } from "react";
-import { useFormStatus } from "react-dom";
 import { Checkbox } from "@/components/ui/checkbox";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
@@ -17,10 +16,10 @@ export default function SignIn() {
 	const [email, setEmail] = useState("maeve.millay@codex.com");
 	const [password] = useState("password");
 	const [showPassword, setShowPassword] = useState(false);
-	const [state, formAction] = useActionState(signIn, initialState);
+	const [state, formAction, isPending] = useActionState(signIn, initialState);
 	console.log(state);
 	return (
-		<div className="w-screen min-h-screen grid grid-cols-1 md:grid-cols-2 fixed z-50 inset-0 bg-background">
+		<div className="w-screen min-h-screen grid grid-cols-1 md:grid-cols-2 fixed z-[100] inset-0 bg-background">
 			<div className="hidden md:flex p-3 w-full h-20 md:h-full">
 				<div className="bg-primary text-white rounded-xl p-6 w-full h-20 md:h-full grid place-content-center">
 					<p className="font-semibold text-lg">Important Notice: </p>
@@ -129,7 +128,7 @@ export default function SignIn() {
 								</label>
 							</div>
 						</div>
-						<SubmitButton />
+						<SubmitButton pending={isPending} />
 					</form>
 				</div>
 			</div>
@@ -137,8 +136,7 @@ export default function SignIn() {
 	);
 }
 
-function SubmitButton() {
-	const { pending } = useFormStatus();
+function SubmitButton({ pending }: { pending: boolean }) {
 	return (
 		<Button color="primary" type="submit" disabled={pending}>
 			{pending ? "Singing in..." : "Sign in"}

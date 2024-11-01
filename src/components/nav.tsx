@@ -8,6 +8,7 @@ import {
 	TbSettingsFilled,
 } from "react-icons/tb";
 import { SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar";
+import Link from "next/link";
 
 const links = [
 	{
@@ -39,7 +40,7 @@ export default function Nav() {
 			{links.map(link => (
 				<SidebarMenuItem key={link.title}>
 					<SidebarMenuButton asChild>
-						<a href={link.url}>
+						<Link href={link.url}>
 							<div
 								className={cn(
 									pathname === link.url ? "text-primary" : "text-gray-500"
@@ -48,7 +49,7 @@ export default function Nav() {
 								{link.icon}
 							</div>
 							<span>{link.title}</span>
-						</a>
+						</Link>
 					</SidebarMenuButton>
 				</SidebarMenuItem>
 			))}

@@ -5,6 +5,7 @@ import { compare } from "bcryptjs";
 import { encrypt } from "@/lib/auth";
 import { cookies } from "next/headers";
 import { prisma } from "@/lib/prisma";
+import type { User } from ".prisma/client";
 
 const signInSchema = z.object({
 	email: z.string({

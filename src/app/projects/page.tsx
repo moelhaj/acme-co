@@ -1,13 +1,29 @@
-import UnderDevelopment from "@/components/under-development";
-import React from "react";
 import { getProjects } from "@/actions/projects";
+import { getUsers } from "@/actions/users";
+import Loader from "@/components/loader";
+import UnderDevelopment from "@/components/under-development";
+import { Suspense } from "react";
+import NewProject from "./new-project";
 
-export default async function Projects() {
-	const projects = await getProjects({ page: 1, limit: 10, query: "" });
+type SearchParams = {
+	p?: number;
+	l?: number;
+	q?: string;
+};
+
+export default async function Projects({ searchParams }: { searchParams: Promise<SearchParams> }) {
+	const page = (await searchParams).p || 1;
+	const limit = (await searchParams).l || 10;
+	const query = (await searchParams).q || "";
+	const projects = await getProjects({ page, limit, query });
+	const users = await getUsers();
 	console.log(projects);
 	return (
-		<div>
+		<Suspense fallback={<Loader />}>
+			<div>
+				<NewProject users={users} />
+			</div>
 			<UnderDevelopment />
-		</div>
+		</Suspense>
 	);
 }

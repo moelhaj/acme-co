@@ -11,6 +11,7 @@ import { ChevronsUpDown, LogOut } from "lucide-react";
 import { signOut } from "@/actions/auth";
 import { DropdownMenuLabel } from "@/components/ui/dropdown-menu";
 import { SidebarMenuButton } from "@/components/ui/sidebar";
+import { User } from "@/lib/types";
 
 export default function UserMenu({ user }: { user: User }) {
 	return (
